@@ -4,7 +4,7 @@ const path = require('path'),
 
 module.exports = {
     entry: {
-        app: './src/index.js'
+        app: './src/index.tsx'
     },
     module: {
         rules: [
@@ -12,11 +12,22 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
+            },
+
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
+                // use: ['babel-loader']
+            },
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'source-map-loader'
             }
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.ts', '.tsx', '.json']
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
