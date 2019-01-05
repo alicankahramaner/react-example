@@ -5,7 +5,7 @@ const webpack = require('webpack'),
 
 module.exports = merge.smart(base, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         contentBase: './dist',
         hot: true
