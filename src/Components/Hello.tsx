@@ -1,11 +1,37 @@
 import * as React from "react";
+import { connect } from "react-redux";
+import { iHelloProps } from "./iHello";
+import { sayHello } from "../State/Hello/actions";
 
-export interface HelloProps { compiler: string; framework: string; }
+class HelloComponent extends React.Component<iHelloProps, {}> {
+    messageShowButton(): any {
+        if (this.props.isMessageShow) {
+            return null;
+        }
 
-// 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
-export class Hello extends React.Component<HelloProps, {}> {
+        return (
+            <button onClick={this.props.sayHello}>Click and show message</button>
+        );
+    }
+
     render() {
-        return <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
+        return (
+            <div>
+                {this.messageShowButton()}
+                <h1>{this.props.message}</h1>
+            </div>
+        );
     }
 }
+
+const mapStateToProps = (state: any) => ({
+    message: state.hello.message,
+    isMessageShow: state.hello.isMessageShow
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+    sayHello: () => { dispatch(sayHello()) }
+});
+
+export const Hello = connect(mapStateToProps, mapDispatchToProps)(HelloComponent)
+

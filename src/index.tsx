@@ -1,10 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
+import { store } from "./State";
 
+// Components
 import { Hello } from './Components/Hello';
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+    <Provider store={store}>
+        <Hello />
+    </Provider>,
     document.getElementById("app")
 );
 
