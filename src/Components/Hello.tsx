@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { iHelloProps } from "./iHello";
-import { sayHello } from "../State/Hello/actions";
+import { sayHello } from "../Store/Hello/actions";
 
 class HelloComponent extends React.Component<iHelloProps, {}> {
     messageShowButton(): any {

@@ -1,4 +1,4 @@
-import { iHello } from "../State/Hello/interface";
+import { iHello } from "../Store/Hello/interface";
 
 export interface iHelloProps extends iHello {
     sayHello: () => void;
