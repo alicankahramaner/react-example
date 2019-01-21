@@ -1,4 +1,4 @@
-# React Example
+# React Example [![Build Status](https://travis-ci.org/alicankahramaner/react-example.svg?branch=master)](https://travis-ci.org/alicankahramaner/react-example)
 
 This project example is a case study for the use of react js and libraries.
 
