@@ -4,6 +4,10 @@ import { iHelloProps } from "./iHello";
 import { sayHello } from "../Store/Hello/actions";
 
 class HelloComponent extends React.Component<iHelloProps, {}> {
+    constructor(props: iHelloProps) {
+        super(props);
+    }
+
     messageShowButton(): any {
         if (this.props.isMessageShow) {
             return null;

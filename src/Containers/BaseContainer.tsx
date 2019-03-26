@@ -1,12 +1,10 @@
 import * as React from "react";
+import { RouteComponentProps } from "react-router";
 
+export interface iBaseContainer extends RouteComponentProps<any> {
 
-export class BaseContainer extends React.Component<any, any> {
-
-    constructor(props: any) {
-        super(props);
-
-    }
+}
+export class BaseContainer<P = {}, S = {}> extends React.Component<P, S> {
 
     private appName: string = 'React Example';
 

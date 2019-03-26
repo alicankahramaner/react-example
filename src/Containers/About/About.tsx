@@ -1,13 +1,16 @@
 import * as React from "react";
-import { BaseContainer } from "../BaseContainer";
+import { BaseContainer, iBaseContainer } from "../BaseContainer";
 import { Hello } from "../../Components/Hello";
 
-export class About extends BaseContainer {
+export interface iAbout extends iBaseContainer { }
+export class About extends BaseContainer<iAbout> {
 
     constructor(props: any) {
         super(props);
 
         this.pageTitle = 'About';
+
+        console.log(this.props.match);
     }
 
     render() {

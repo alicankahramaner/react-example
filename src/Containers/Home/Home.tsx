@@ -1,7 +1,9 @@
 import * as React from "react";
-import { BaseContainer } from "../BaseContainer";
+import { BaseContainer, iBaseContainer } from "../BaseContainer";
+import { Link } from "react-router-dom";
 
-export class Home extends BaseContainer {
+interface iHome extends iBaseContainer { }
+export class Home extends BaseContainer<iHome> {
 
     constructor(props: any) {
         super(props);

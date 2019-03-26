@@ -1,10 +1,23 @@
-import React = require("react");
-import { Routes, iRoute } from '../Routes/index';
+import * as React from 'react';
+import { Routes, iRoute, getLinks } from '../Routes/index';
 import { Route, Link, Switch } from "react-router-dom";
 
 export class App extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
+    }
+
+    private getLinks() {
+        return getLinks().map((l, i) => {
+            return (
+                <Link
+                    to={l.url}
+                    key={i}
+                >
+                    {l.title}
+                </Link>
+            )
+        });
     }
 
     private getRoutes() {
@@ -22,33 +35,13 @@ export class App extends React.Component<any, any> {
                 <Route
                     key={index}
                     exact={router.exact}
-                    path={router.path}
+                    path={router.url}
                     component={router.component}
                 />
             )
         });
 
         return routes;
-    }
-
-    private getLinks() {
-
-        let links = Routes.map((router: iRoute, index: number) => {
-            if (router.errorPage) {
-                return false;
-            }
-
-            return (
-                <Link
-                    key={index}
-                    to={router.path.toString()}
-                >
-                    {router.title}
-                </Link>
-            )
-        });
-
-        return links;
     }
 
     render() {

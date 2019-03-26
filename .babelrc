@@ -1,6 +1,14 @@
 {
     "presets": [
+        [
+            "@babel/polyfill",
+            {
+                "modules": false,
+                "useBuiltIns": "usage"
+            }
+        ],
         "@babel/preset-env",
-        "@babel/preset-react"
+        "@babel/preset-react",
+        "@babel/preset-es2017"
     ]
 }
