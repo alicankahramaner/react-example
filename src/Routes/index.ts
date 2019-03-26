@@ -7,52 +7,47 @@ import { page404 } from "../Pages/404";
 import { Link, LinkProps } from "react-router-dom";
 import { LinkHTMLAttributes } from "react";
 export interface iRoute extends RouteProps {
-    name: string;
-    title: string;
-    errorPage?: boolean;
-    url?: string;
+  name: string;
+  title: string;
+  errorPage?: boolean;
+  url?: string;
 }
 
 export const Routes: iRoute[] = [
-    {
-        name: 'home',
-        title: 'Home',
-        exact: true,
-        url: '/',
-        component: Home
-    },
+  {
+    name: "home",
+    title: "Home",
+    exact: true,
+    url: "/",
+    component: Home
+  },
 
-    {
-        name: 'about',
-        title: 'About',
-        url: '/about/:id',
-        exact: false,
-        component: About,
+  {
+    name: "about",
+    title: "About",
+    url: "/about/",
+    exact: false,
+    component: About
+  },
 
-    },
-
-    {
-        name: '404',
-        title: '404',
-        errorPage: true,
-        component: page404
-    }
+  {
+    name: "404",
+    title: "404",
+    errorPage: true,
+    component: page404
+  }
 ];
 
 export const getLinks = () => {
-    let links: iRoute[] = []
 
-    Routes.forEach((r) => {
-        if (r.errorPage) {
-            return false;
-        }
+  return Routes.filter((r)=>{
+      if(r.errorPage){
+          return false;
+      }
 
-        if (r.url.includes(':id')) {
-            r.url.replace(':id', 'new');
-        }
+    r.url.includes(':id') ? r.url = r.url.replace(':id','new'): null;
 
-        links.push(r);
-    });
+    return r;
+  });
 
-    return links;
 };

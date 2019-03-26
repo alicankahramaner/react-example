@@ -9,8 +9,6 @@ export class About extends BaseContainer<iAbout> {
         super(props);
 
         this.pageTitle = 'About';
-
-        console.log(this.props.match);
     }
 
     render() {

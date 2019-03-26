@@ -8,7 +8,10 @@ export class App extends React.Component<any, any> {
     }
 
     private getLinks() {
-        return getLinks().map((l, i) => {
+        let links = getLinks()
+        
+        return links.map((l, i) => {
+            
             return (
                 <Link
                     to={l.url}
