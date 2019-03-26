@@ -25,7 +25,7 @@ export const Routes: iRoute[] = [
   {
     name: "about",
     title: "About",
-    url: "/about/",
+    url: "/about",
     exact: false,
     component: About
   },
