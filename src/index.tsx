@@ -5,6 +5,8 @@ import { store } from "./Store";
 import { BrowserRouter } from 'react-router-dom';
 import { App } from "./App/App";
 
+import './Scss/main.scss';
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

@@ -1,64 +1,56 @@
-import * as React from 'react';
-import { Routes, iRoute, getLinks } from '../Routes/index';
-import { Route, Link, Switch } from "react-router-dom";
+import * as React from "react";
+import { Routes, iRoute, getLinks } from "../Routes/index";
+import { Route, Switch, NavLink } from "react-router-dom";
 
 export class App extends React.Component<any, any> {
-    constructor(props: any) {
-        super(props);
-    }
+  constructor(props: any) {
+    super(props);
+  }
 
-    private getLinks() {
-        let links = getLinks()
-        
-        return links.map((l, i) => {
-            
-            return (
-                <Link
-                    to={l.url}
-                    key={i}
-                >
-                    {l.title}
-                </Link>
-            )
-        });
-    }
+  private getLinks() {
+    let links = getLinks();
 
-    private getRoutes() {
-        let routes = Routes.map((router: iRoute, index: number) => {
-            if (router.errorPage) {
-                return (
-                    <Route
-                        key={index}
-                        component={router.component}
-                    />
-                )
-            }
+    return links.map((l, i) => {
+      return (
+        <NavLink
+          to={l.url}
+          key={i}
+          exact={l.exact}
+          activeClassName="active"
+        >
+          {l.title}
+        </NavLink>
+      );
+    });
+  }
 
-            return (
-                <Route
-                    key={index}
-                    exact={router.exact}
-                    path={router.url}
-                    component={router.component}
-                />
-            )
-        });
+  private getRoutes() {
+    let routes = Routes.map((router: iRoute, index: number) => {
+      if (router.errorPage) {
+        return <Route key={index} component={router.component} />;
+      }
 
-        return routes;
-    }
+      return (
+        <Route
+          key={index}
+          exact={router.exact}
+          path={router.url}
+          component={router.component}
+        />
+      );
+    });
 
-    render() {
-        return (
-            <div className="main-container">
-                <nav>
-                    {this.getLinks()}
-                </nav>
-                <main>
-                    <Switch>
-                        {this.getRoutes()}
-                    </Switch>
-                </main>
-            </div>
-        )
-    }
-};
+    return routes;
+  }
+
+  render() {
+    return (
+      <div className="main-container">
+        <nav className="navigation">{this.getLinks()}</nav>
+        <main>
+          <Switch>{this.getRoutes()}</Switch>
+        </main>
+      </div>
+    );
+  }
+}

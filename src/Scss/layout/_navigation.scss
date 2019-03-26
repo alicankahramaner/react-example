@@ -1,0 +1,24 @@
+.navigation{
+    display: flex;
+    flex-direction: row;
+    
+    a{
+        display:inline-block;
+        padding: 7px 10px;
+        border: 1px solid $primary;
+        color: $primary;
+        margin-right: 5px;
+        text-decoration: none;
+        transition: all ease-in-out .3s;
+
+        &:last-child{
+            margin-right: 0;
+        }
+
+        &.active{
+            background: $primary;
+            border-color: $blue;
+            color: $white;
+        }
+    }
+}
