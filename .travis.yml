@@ -1,17 +1,18 @@
 language: node_js
-
 node_js:
-  - '11.7.0'
-
+- 11.7.0
 branches:
   only:
-    - master
+  - master
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 install:
-  - npm i
-
+- npm i
 script:
-  - npm run build
+- npm run build
+deploy:
+  provider: firebase
+  token:
+    secure: M2Km6SHNNOQACZWnOqfxX5R/FfroFQSWJYNCRaqjjXX/k6PFGQ1Ciw1+TPM/QYtmfCSBVXFInkzyRIEfWrTUQirVwz/qiIrhssDGxW+pjtwXWRmeIR8QPwxIJobS8cZB/SqWdtGeUP1n1+yXo4kt2mZuQcLut6xy+JBhZev7jlD0xXZH4Pd+iL7rZ7/e4gSdxBRhIGvvyeEGf4n/A4a9FpsF2cZw1qj3G9xKFULf8y6AVA/yzjcc8CE8KK7M3L5AhJjZQt9JqfJc4n4f36iZfV0MlwGHviZSfy5HQW94Ske0Cacnrhx3aatc3uCXfPjeuUgeWjzLzbM27RdaqldtRWnORrlE6S3iH7pZoy7B6g9+iKqMMfmIbLKqVKWk6cV4hPfMWj1l+xvLDjG0ItkO59wVO5n1L5OBIdNaB/PGurP4SL2yez5HD07HikaUvm9H+eJx7I6bqFYVF2hgUAYx50vzWj6OjfZgpgnP+0meJku4ssXWQXGEBSt9olk563Fcn4yQpIYL515LFInjhv6YMPdvQz0i+FptG4cp6Wb6FCtMoRXAWv7qMbvXer+F9MbJd58BxPCq6YlOrneDqm4QhFGBUhhrWY7/9i6nmn91MsaxrlFnG5gJ6YoLEYLkP46m54GFdvhySz8MLes3LVDbfTtmQJ4o6fOX0rreUiwKLoE=
+  project: "react-example-c115d"
