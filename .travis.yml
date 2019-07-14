@@ -7,7 +7,7 @@ branches:
 cache:
   directories:
   - node_modules
-  - build
+  - dist
 install:
 - npm i
 script:
