@@ -12,5 +12,4 @@ install:
 - npm i -g firebase--tools
 script:
 - npm run build
-deploy:
 - fireabase deploy --token $FIREBASE_TOKEN
