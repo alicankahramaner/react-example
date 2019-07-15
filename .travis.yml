@@ -9,7 +9,7 @@ cache:
   - node_modules
 install:
 - npm i
-- npm i -g firebase--tools
+- npm i -g firebase-tools
 script:
 - npm run build
 - fireabase deploy --token $FIREBASE_TOKEN
